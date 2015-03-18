@@ -132,7 +132,7 @@ interface VRPositionState {
 };
 </pre>
 
-### Attributes
+### Attributes ### {#vrpositionstateattributes}
 
 <dfn attribute for=VRPositionState>timeStamp</dfn>
 Monotonically increasing value that allows the author to determine if position
@@ -184,12 +184,12 @@ May be null if the sensor is incapable of providing angular velocity.
 Angular acceleration of the sensor at {{timeStamp}}. The w component MUST be 0.
 May be null if the sensor is incapable of providing angular acceleration.
 
-## EyeParameters
+## VREyeParameters
 
-The {{EyeParameters}} interface represents all the information required to correctly render a scene for a given eye.
+The {{VREyeParameters}} interface represents all the information required to correctly render a scene for a given eye.
 
 <pre class="idl">
-interface EyeParameters {
+interface VREyeParameters {
   /* These values are expected to be static per-device/per-user */
   readonly attribute VRFieldOfView minimumFieldOfView;
   readonly attribute VRFieldOfView maximumFieldOfView;
@@ -202,30 +202,30 @@ interface EyeParameters {
 };
 </pre>
 
-### Attributes
+### Attributes ### {#vreyeparametersattributes}
 
-<dfn attribute for=EyeParameters>minimumFieldOfView</dfn>
+<dfn attribute for=VREyeParameters>minimumFieldOfView</dfn>
 Describes the minimum supported field of view for the eye.
 
-<dfn attribute for=EyeParameters>maximumFieldOfView</dfn>
+<dfn attribute for=VREyeParameters>maximumFieldOfView</dfn>
 Describes the maximum supported field of view for the eye.
 
-<dfn attribute for=EyeParameters>recommendedFieldOfView</dfn>
+<dfn attribute for=VREyeParameters>recommendedFieldOfView</dfn>
 Describes the recommended field of view for the eye. It is RECOMMENDED that this
 be set to a value based on user calibration.
 
-<dfn attribute for=EyeParameters>eyeTranslation</dfn>
+<dfn attribute for=VREyeParameters>eyeTranslation</dfn>
 Offset from the center of the users head to the eye in meters. This value SHOULD
 represent the users inter-pupilary distance (IPD), but may also represent the
 distance from the centerpoint of the headset to the centerpoint of the lense for
 the given eye. Values for the left eye MUST be negative, values for the right
 eye MUST be positive.
 
-<dfn attribute for=EyeParameters>currentFieldOfView</dfn>
+<dfn attribute for=VREyeParameters>currentFieldOfView</dfn>
 The current field of view for the eye, as specified by setFieldOfView.
 Defaults to {{recommendedFieldOfView}}.
 
-<dfn attribute for=EyeParameters>renderRect</dfn>
+<dfn attribute for=VREyeParameters>renderRect</dfn>
 Describes the viewport of a canvas into which visuals for this eye should be
 rendered. The {{renderRect}} for the left eye and right eye MUST NOT overlap,
 and the {{renderRect}} for the rightEye MUST be to the right of the
@@ -268,7 +268,7 @@ interface VRDevice {
 };
 </pre>
 
-### Attributes
+### Attributes ### {#vrdeviceattributes}
 
 <dfn attribute for=VRDevice>hardwareUnitId</dfn>
 An identifier for the distinct hardware unit that this {{VRDevice}} is a part
@@ -289,7 +289,7 @@ The {{HMDVRDevice}} interface represents a {{VRDevice}} for a head-mounted displ
 
 <pre class="idl">
 interface HMDVRDevice : VRDevice {
-  EyeParameters getEyeParameters(VREye whichEye);
+  VREyeParameters getEyeParameters(VREye whichEye);
   void setFieldOfView(optional VRFieldOfViewInit leftFOV,
                       optional VRFieldOfViewInit rightFOV,
                       optional double zNear = 0.01,
@@ -297,10 +297,10 @@ interface HMDVRDevice : VRDevice {
 };
 </pre>
 
-### Methods
+### Methods ### {#hmdvrdevicemethods}
 
 <dfn method for=HMDVRDevice>getEyeParameters(VREye whichEye)</dfn>
-Return the current {{EyeParameters}} for the given eye.
+Return the current {{VREyeParameters}} for the given eye.
 
 <dfn method for=HMDVRDevice>setFieldOfView(optional VRFieldOfViewInit leftFOV, optional VRFieldOfViewInit rightFOV, optional double zNear = 0.01, optional double zFar = 10000.0)</dfn>
 Set the field of view for both eyes.  If either of the fields of view is null,
@@ -321,7 +321,7 @@ interface PositionSensorVRDevice : VRDevice {
 };
 </pre>
 
-### Methods
+### Methods ### {#positionsensorvrdevicemethods}
 
 <dfn method for=HMDVRDevice>getState()</dfn>
 Return a {{VRPositionState}} dictionary containing the state of this position
@@ -340,5 +340,48 @@ Return the current instantaneous sensor state.
 <dfn method for=HMDVRDevice>resetSensor()</dfn>
 Reset this sensor, treating its current position and orientation yaw as the
 "origin/zero" values.
+
+## Navigator Interface extension
+
+<pre class="idl">
+partial interface Navigator {
+  Promise&lt;sequence&lt;VRDevice&gt&gt; getVRDevices();
+};
+</pre>
+
+### Methods ### {#navigatormethods}
+
+<dfn method for=Navigator>getVRDevices()</dfn>
+Return a Promise which resolves to a list of available {{VRDevice}}s.
+Applications should iterate over the list and correlate devices that share
+{{hardwareUnitId}}s to access the full capabilities of a device.
+
+<div class="example">
+The following code finds the first available {{HMDVRDevice}} and it's
+associated {{PositionSensorVRDevice}}, if it has one.
+
+<pre>
+var gHMD, gPositionSensor;
+
+navigator.getVRDevices().then(function(devices) {
+  for (var i = 0; i < devices.length; ++i) {
+    if (devices[i] instanceof HMDVRDevice) {
+      gHMD = devices[i];
+      break;
+    }
+  }
+
+  if (gHMD) {
+    for (var i = 0; i < devices.length; ++i) {
+      if (devices[i] instanceof PositionSensorVRDevice &&
+          devices[i].hardwareUnitId == gHMD.hardwareUnitId)) {
+        gPositionSensor = devices[i];
+        break;
+      }
+    }
+  }
+});
+</pre>
+</div>
 
 # Acknowledgements # {#ack}
