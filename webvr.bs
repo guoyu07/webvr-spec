@@ -277,8 +277,6 @@ have the same {{hardwareUnitId}}.
 
 <dfn attribute for=VRDevice>deviceId</dfn>
 An identifier for this distinct sensor/device on a physical hardware device.
-This shouldn't change across browser restarts, allowing configuration data to be
-saved based on it.
 
 <dfn attribute for=VRDevice>deviceName</dfn>
 A user-readable name identifying the device.
