@@ -68,6 +68,7 @@ pre, code, .idl-code {
   font-size: .9em;
   font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
 }
+pre .idl-code, pre code { font-size: 1em; }
 dt dfn code { font-size: inherit; }
 
 dfn { font-weight: bolder; }
@@ -562,7 +563,7 @@ span.issue, span.note {
    <h1 class="p-name no-ref" id="title">WebVR</h1>
   
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft,
-    <time class="dt-updated" datetime="2015-03-18">18 March 2015</time></span></h2>
+    <time class="dt-updated" datetime="2015-05-13">13 May 2015</time></span></h2>
   
    <div data-fill-with="spec-metadata">
     <dl>
@@ -581,7 +582,7 @@ span.issue, span.note {
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 18 March 2015,
+In addition, as of 13 May 2015,
 the editors have made this specification available under the
 <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -735,7 +736,7 @@ interface <dfn class="idl-code" data-dfn-type="interface" data-export="" data-gl
 </pre>
 
 
-   <div class="example">
+   <div class="example" id="example-b45e6820"><a class="self-link" href="#example-b45e6820"></a>
 The following code snippet creates a WebGL-compatible projection matrix from a
 <code class="idl"><a data-link-type="idl" href="#vrfieldofview0">VRFieldOfView</a></code>.
 
@@ -782,15 +783,15 @@ The following code snippet creates a WebGL-compatible projection matrix from a
   readonly attribute double <a class="idl-code" data-global-name="VRPositionState<interface>/timeStamp<attribute>" data-link-type="attribute" data-readonly="" data-type="double " href="#dom-vrpositionstate-timestamp">timeStamp</a>;
 
   readonly attribute boolean <a class="idl-code" data-global-name="VRPositionState<interface>/hasPosition<attribute>" data-link-type="attribute" data-readonly="" data-type="boolean " href="#dom-vrpositionstate-hasposition">hasPosition</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/position<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-position">position</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/linearVelocity<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-linearvelocity">linearVelocity</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/linearAcceleration<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-linearacceleration">linearAcceleration</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/position<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-position">position</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/linearVelocity<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-linearvelocity">linearVelocity</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/linearAcceleration<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-linearacceleration">linearAcceleration</a>;
 
   readonly attribute boolean <a class="idl-code" data-global-name="VRPositionState<interface>/hasOrientation<attribute>" data-link-type="attribute" data-readonly="" data-type="boolean " href="#dom-vrpositionstate-hasorientation">hasOrientation</a>;
   // XXX should be DOMQuaternion as soon as we add that
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/orientation<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-orientation">orientation</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/angularVelocity<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-angularvelocity">angularVelocity</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/angularAcceleration<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-angularacceleration">angularAcceleration</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/orientation<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-orientation">orientation</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/angularVelocity<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-angularvelocity">angularVelocity</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/angularAcceleration<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-angularacceleration">angularAcceleration</a>;
 };
 </pre>
 
@@ -872,11 +873,11 @@ May be null if the sensor is incapable of providing angular acceleration.</p>
   readonly attribute <a data-link-type="idl-name" href="#vrfieldofview0">VRFieldOfView</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/minimumFieldOfView<attribute>" data-link-type="attribute" data-readonly="" data-type="VRFieldOfView " href="#dom-vreyeparameters-minimumfieldofview">minimumFieldOfView</a>;
   readonly attribute <a data-link-type="idl-name" href="#vrfieldofview0">VRFieldOfView</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/maximumFieldOfView<attribute>" data-link-type="attribute" data-readonly="" data-type="VRFieldOfView " href="#dom-vreyeparameters-maximumfieldofview">maximumFieldOfView</a>;
   readonly attribute <a data-link-type="idl-name" href="#vrfieldofview0">VRFieldOfView</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/recommendedFieldOfView<attribute>" data-link-type="attribute" data-readonly="" data-type="VRFieldOfView " href="#dom-vreyeparameters-recommendedfieldofview">recommendedFieldOfView</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/eyeTranslation<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint " href="#dom-vreyeparameters-eyetranslation">eyeTranslation</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/eyeTranslation<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint " href="#dom-vreyeparameters-eyetranslation">eyeTranslation</a>;
 
   /* These values will vary after a FOV has been set */
   readonly attribute <a data-link-type="idl-name" href="#vrfieldofview0">VRFieldOfView</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/currentFieldOfView<attribute>" data-link-type="attribute" data-readonly="" data-type="VRFieldOfView " href="#dom-vreyeparameters-currentfieldofview">currentFieldOfView</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-domrect">DOMRect</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/renderRect<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMRect " href="#dom-vreyeparameters-renderrect">renderRect</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#domrect">DOMRect</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/renderRect<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMRect " href="#dom-vreyeparameters-renderrect">renderRect</a>;
 };
 </pre>
 
@@ -923,7 +924,7 @@ the center of the users view maintains a 1:1 pixel ratio after any distortion
 to correct for HMD optics is applied to the rendering.</p>
 
 
-   <div class="example">
+   <div class="example" id="example-1e6211c6"><a class="self-link" href="#example-1e6211c6"></a>
 Many HMDs will distort the rendered image to counteract undesired effects
 introduced by the headset optics. Because of this the optimal resolution of the
 canvas will often be larger than the HMDs physical resolution to ensure that
@@ -968,9 +969,7 @@ have the same <code class="idl"><a data-link-type="idl" href="#dom-vrdevice-hard
 
 
    <p><dfn class="idl-code" data-dfn-for="VRDevice" data-dfn-type="attribute" data-export="" id="dom-vrdevice-deviceid">deviceId<a class="self-link" href="#dom-vrdevice-deviceid"></a></dfn>
-An identifier for this distinct sensor/device on a physical hardware device.
-This shouldn’t change across browser restarts, allowing configuration data to be
-saved based on it.</p>
+An identifier for this distinct sensor/device on a physical hardware device.</p>
 
 
    <p><dfn class="idl-code" data-dfn-for="VRDevice" data-dfn-type="attribute" data-export="" id="dom-vrdevice-devicename">deviceName<a class="self-link" href="#dom-vrdevice-devicename"></a></dfn>
@@ -984,11 +983,11 @@ A user-readable name identifying the device.</p>
 
 
    <pre class="idl">interface <dfn class="idl-code" data-dfn-type="interface" data-export="" data-global-name="" id="hmdvrdevice0">HMDVRDevice<a class="self-link" href="#hmdvrdevice0"></a></dfn> : <a data-link-type="idl-name" href="#vrdevice0">VRDevice</a> {
-  <a data-link-type="idl-name" href="#vreyeparameters0">VREyeParameters</a> <dfn class="idl-code" data-dfn-for="HMDVRDevice" data-dfn-type="method" data-export="" data-global-name="HMDVRDevice<interface>/getEyeParameters(whichEye)<method>" data-lt="getEyeParameters(whichEye)" id="dom-hmdvrdevice-geteyeparameterswhicheye">getEyeParameters<a class="self-link" href="#dom-hmdvrdevice-geteyeparameterswhicheye"></a></dfn>(<a data-link-type="idl-name" href="#enumdef-vreye">VREye</a> <dfn class="idl-code" data-dfn-for="HMDVRDevice/getEyeParameters" data-dfn-type="argument" data-export="" data-global-name="HMDVRDevice/getEyeParameters/whichEye<argument>" id="dom-hmdvrdevice-geteyeparameters-whicheye">whichEye<a class="self-link" href="#dom-hmdvrdevice-geteyeparameters-whicheye"></a></dfn>);
-  void <a class="idl-code" data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/setFieldOfView(leftFOV, rightFOV, zNear)<method>/setFieldOfView(leftFOV, rightFOV)<method>/setFieldOfView(leftFOV)<method>/setFieldOfView()<method>" data-link-type="method" href="#dom-hmdvrdevice-setfieldofview">setFieldOfView</a>(optional <a data-link-type="idl-name" href="#dictdef-vrfieldofviewinit">VRFieldOfViewInit</a> <dfn class="idl-code" data-dfn-for="HMDVRDevice/setFieldOfView" data-dfn-type="argument" data-export="" data-global-name="HMDVRDevice/setFieldOfView/leftFOV<argument>" id="dom-hmdvrdevice-setfieldofview-leftfov">leftFOV<a class="self-link" href="#dom-hmdvrdevice-setfieldofview-leftfov"></a></dfn>,
-                      optional <a data-link-type="idl-name" href="#dictdef-vrfieldofviewinit">VRFieldOfViewInit</a> <dfn class="idl-code" data-dfn-for="HMDVRDevice/setFieldOfView" data-dfn-type="argument" data-export="" data-global-name="HMDVRDevice/setFieldOfView/rightFOV<argument>" id="dom-hmdvrdevice-setfieldofview-rightfov">rightFOV<a class="self-link" href="#dom-hmdvrdevice-setfieldofview-rightfov"></a></dfn>,
-                      optional double <dfn class="idl-code" data-dfn-for="HMDVRDevice/setFieldOfView" data-dfn-type="argument" data-export="" data-global-name="HMDVRDevice/setFieldOfView/zNear<argument>" id="dom-hmdvrdevice-setfieldofview-znear">zNear<a class="self-link" href="#dom-hmdvrdevice-setfieldofview-znear"></a></dfn> = 0.01,
-                      optional double <dfn class="idl-code" data-dfn-for="HMDVRDevice/setFieldOfView" data-dfn-type="argument" data-export="" data-global-name="HMDVRDevice/setFieldOfView/zFar<argument>" id="dom-hmdvrdevice-setfieldofview-zfar">zFar<a class="self-link" href="#dom-hmdvrdevice-setfieldofview-zfar"></a></dfn> = 10000.0);
+  <a data-link-type="idl-name" href="#vreyeparameters0">VREyeParameters</a> <a class="idl-code" data-global-name="HMDVRDevice<interface>/getEyeParameters(whichEye)<method>" data-link-type="method" href="#dom-hmdvrdevice-geteyeparameterswhicheye">getEyeParameters</a>(<a data-link-type="idl-name" href="#enumdef-vreye">VREye</a> <dfn class="idl-code" data-dfn-for="HMDVRDevice/getEyeParameters(whichEye)" data-dfn-type="argument" data-export="" data-global-name="HMDVRDevice<interface>/getEyeParameters(whichEye)<method>/whichEye<argument>" id="dom-hmdvrdevice-geteyeparameterswhicheye-whicheye">whichEye<a class="self-link" href="#dom-hmdvrdevice-geteyeparameterswhicheye-whicheye"></a></dfn>);
+  void <a class="idl-code" data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/setFieldOfView(leftFOV, rightFOV, zNear)<method>/setFieldOfView(leftFOV, rightFOV)<method>/setFieldOfView(leftFOV)<method>/setFieldOfView()<method>" data-link-type="method" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar">setFieldOfView</a>(optional <a data-link-type="idl-name" href="#dictdef-vrfieldofviewinit">VRFieldOfViewInit</a> <dfn class="idl-code" data-dfn-for="HMDVRDevice/setFieldOfView(leftFOV, rightFOV, zNear, zFar)" data-dfn-type="argument" data-export="" data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/leftFOV<argument>" id="dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-leftfov">leftFOV<a class="self-link" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-leftfov"></a></dfn>,
+                      optional <a data-link-type="idl-name" href="#dictdef-vrfieldofviewinit">VRFieldOfViewInit</a> <dfn class="idl-code" data-dfn-for="HMDVRDevice/setFieldOfView(leftFOV, rightFOV, zNear, zFar)" data-dfn-type="argument" data-export="" data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/rightFOV<argument>" id="dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-rightfov">rightFOV<a class="self-link" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-rightfov"></a></dfn>,
+                      optional double <dfn class="idl-code" data-dfn-for="HMDVRDevice/setFieldOfView(leftFOV, rightFOV, zNear, zFar)" data-dfn-type="argument" data-export="" data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/zNear<argument>" id="dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-znear">zNear<a class="self-link" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-znear"></a></dfn> = 0.01,
+                      optional double <dfn class="idl-code" data-dfn-for="HMDVRDevice/setFieldOfView(leftFOV, rightFOV, zNear, zFar)" data-dfn-type="argument" data-export="" data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/zFar<argument>" id="dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-zfar">zFar<a class="self-link" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-zfar"></a></dfn> = 10000.0);
 };
 </pre>
 
@@ -996,11 +995,11 @@ A user-readable name identifying the device.</p>
    <h4 class="heading settled" data-level="4.6.1" id="hmdvrdevicemethods"><span class="secno">4.6.1. </span><span class="content">Methods</span><a class="self-link" href="#hmdvrdevicemethods"></a></h4>
 
 
-   <p><dfn class="idl-code" data-dfn-for="HMDVRDevice" data-dfn-type="method" data-export="" data-lt="getEyeParameters()" id="dom-hmdvrdevice-geteyeparameters">getEyeParameters(VREye whichEye)<a class="self-link" href="#dom-hmdvrdevice-geteyeparameters"></a></dfn>
+   <p><dfn class="idl-code" data-dfn-for="HMDVRDevice" data-dfn-type="method" data-export="" data-lt="getEyeParameters(whichEye)" id="dom-hmdvrdevice-geteyeparameterswhicheye">getEyeParameters(VREye whichEye)<a class="self-link" href="#dom-hmdvrdevice-geteyeparameterswhicheye"></a></dfn>
 Return the current <code class="idl"><a data-link-type="idl" href="#vreyeparameters0">VREyeParameters</a></code> for the given eye.</p>
 
 
-   <p><dfn class="idl-code" data-dfn-for="HMDVRDevice" data-dfn-type="method" data-export="" data-lt="setFieldOfView()" id="dom-hmdvrdevice-setfieldofview">setFieldOfView(optional VRFieldOfViewInit leftFOV, optional VRFieldOfViewInit rightFOV, optional double zNear = 0.01, optional double zFar = 10000.0)<a class="self-link" href="#dom-hmdvrdevice-setfieldofview"></a></dfn>
+   <p><dfn class="idl-code" data-dfn-for="HMDVRDevice" data-dfn-type="method" data-export="" data-lt="setFieldOfView(leftFOV, rightFOV, zNear, zFar)|setFieldOfView(leftFOV, rightFOV, zNear)|setFieldOfView(leftFOV, rightFOV)|setFieldOfView(leftFOV)|setFieldOfView()" id="dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar">setFieldOfView(optional VRFieldOfViewInit leftFOV, optional VRFieldOfViewInit rightFOV, optional double zNear = 0.01, optional double zFar = 10000.0)<a class="self-link" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar"></a></dfn>
 Set the field of view for both eyes.  If either of the fields of view is null,
 or if their values are all zeros, then the <code class="idl"><a data-link-type="idl" href="#dom-vreyeparameters-recommendedfieldofview">recommendedFieldOfView</a></code> for that
 eye will be used. If the field of view values for an eye exceed the
@@ -1050,7 +1049,7 @@ Reset this sensor, treating its current position and orientation yaw as the
    <h3 class="heading settled" data-level="4.8" id="navigator-interface-extension"><span class="secno">4.8. </span><span class="content">Navigator Interface extension</span><a class="self-link" href="#navigator-interface-extension"></a></h3>
 
 
-   <pre class="idl">partial interface <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/#navigator">Navigator</a> {
+   <pre class="idl">partial interface <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a> {
   Promise&lt;sequence&lt;<a data-link-type="idl-name" href="#vrdevice0">VRDevice</a>>> <a class="idl-code" data-global-name="Navigator<interface>/getVRDevices()<method>" data-link-type="method" href="#dom-navigator-getvrdevices">getVRDevices</a>();
 };
 </pre>
@@ -1065,7 +1064,7 @@ Applications should iterate over the list and correlate devices that share
 <code class="idl"><a data-link-type="idl" href="#dom-vrdevice-hardwareunitid">hardwareUnitId</a></code>s to access the full capabilities of a device.</p>
 
 
-   <div class="example">
+   <div class="example" id="example-3a48f0ff"><a class="self-link" href="#example-3a48f0ff"></a>
 The following code finds the first available <code class="idl"><a data-link-type="idl" href="#hmdvrdevice0">HMDVRDevice</a></code> and it’s
 associated <code class="idl"><a data-link-type="idl" href="#positionsensorvrdevice0">PositionSensorVRDevice</a></code>, if it has one.
 
@@ -1121,7 +1120,7 @@ Conformance</span><a class="self-link" href="#conformance"></a></h2>
         or are set apart from the normative text with <code>class="example"</code>, like this:
 
     </p>
-  <div class="example">
+  <div class="example" id="example-ae2b6bc0"><a class="self-link" href="#example-ae2b6bc0"></a>
         This is an example of an informative example.
     </div>
 
@@ -1154,8 +1153,7 @@ Conformance</span><a class="self-link" href="#conformance"></a></h2>
     </ul>
    <li>eyeTranslation, <a href="#dom-vreyeparameters-eyetranslation">4.4.1</a>
    <li>fov, <a href="#dom-vrfieldofview-vrfieldofviewfov-fov">4.2</a>
-   <li>getEyeParameters(), <a href="#dom-hmdvrdevice-geteyeparameters">4.6.1</a>
-   <li>getEyeParameters(whichEye), <a href="#dom-hmdvrdevice-geteyeparameterswhicheye">4.6</a>
+   <li>getEyeParameters(whichEye), <a href="#dom-hmdvrdevice-geteyeparameterswhicheye">4.6.1</a>
    <li>getImmediateState()
     <ul>
      <li>method for PositionSensorVRDevice, <a href="#dom-positionsensorvrdevice-getimmediatestate">4.7</a>
@@ -1178,7 +1176,7 @@ Conformance</span><a class="self-link" href="#conformance"></a></h2>
      <li>argument for VRFieldOfView/VRFieldOfView(upDegrees, rightDegrees, downDegrees, leftDegrees), <a href="#dom-vrfieldofview-vrfieldofviewupdegrees-rightdegrees-downdegrees-leftdegrees-leftdegrees">4.2</a>
      <li>attribute for VRFieldOfView, <a href="#dom-vrfieldofview-leftdegrees">4.2</a>
     </ul>
-   <li>leftFOV, <a href="#dom-hmdvrdevice-setfieldofview-leftfov">4.6</a>
+   <li>leftFOV, <a href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-leftfov">4.6</a>
    <li>linearAcceleration, <a href="#dom-vrpositionstate-linearacceleration">4.3.1</a>
    <li>linearVelocity, <a href="#dom-vrpositionstate-linearvelocity">4.3.1</a>
    <li>maximumFieldOfView, <a href="#dom-vreyeparameters-maximumfieldofview">4.4.1</a>
@@ -1200,8 +1198,12 @@ Conformance</span><a class="self-link" href="#conformance"></a></h2>
      <li>argument for VRFieldOfView/VRFieldOfView(upDegrees, rightDegrees, downDegrees, leftDegrees), <a href="#dom-vrfieldofview-vrfieldofviewupdegrees-rightdegrees-downdegrees-leftdegrees-rightdegrees">4.2</a>
      <li>attribute for VRFieldOfView, <a href="#dom-vrfieldofview-rightdegrees">4.2</a>
     </ul>
-   <li>rightFOV, <a href="#dom-hmdvrdevice-setfieldofview-rightfov">4.6</a>
-   <li>setFieldOfView(), <a href="#dom-hmdvrdevice-setfieldofview">4.6.1</a>
+   <li>rightFOV, <a href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-rightfov">4.6</a>
+   <li>setFieldOfView(), <a href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar">4.6.1</a>
+   <li>setFieldOfView(leftFOV), <a href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar">4.6.1</a>
+   <li>setFieldOfView(leftFOV, rightFOV), <a href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar">4.6.1</a>
+   <li>setFieldOfView(leftFOV, rightFOV, zNear), <a href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar">4.6.1</a>
+   <li>setFieldOfView(leftFOV, rightFOV, zNear, zFar), <a href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar">4.6.1</a>
    <li>timeStamp, <a href="#dom-vrpositionstate-timestamp">4.3.1</a>
    <li>upDegrees
     <ul>
@@ -1219,29 +1221,29 @@ Conformance</span><a class="self-link" href="#conformance"></a></h2>
    <li>VRFieldOfViewReadOnly, <a href="#vrfieldofviewreadonly">4.2</a>
    <li>VRFieldOfView(upDegrees, rightDegrees, downDegrees, leftDegrees), <a href="#dom-vrfieldofview-vrfieldofviewupdegrees-rightdegrees-downdegrees-leftdegrees">4.2</a>
    <li>VRPositionState, <a href="#vrpositionstate0">4.3</a>
-   <li>whichEye, <a href="#dom-hmdvrdevice-geteyeparameters-whicheye">4.6</a>
-   <li>zFar, <a href="#dom-hmdvrdevice-setfieldofview-zfar">4.6</a>
-   <li>zNear, <a href="#dom-hmdvrdevice-setfieldofview-znear">4.6</a>
+   <li>whichEye, <a href="#dom-hmdvrdevice-geteyeparameterswhicheye-whicheye">4.6</a>
+   <li>zFar, <a href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-zfar">4.6</a>
+   <li>zNear, <a href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-znear">4.6</a>
   </ul>
   <h3 class="no-num heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="indexlist">
    <li><a data-link-type="biblio" href="#biblio-geometry-1">[geometry-1]</a> defines the following terms:
     <ul>
-     <li><a href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>
-     <li><a href="http://dev.w3.org/fxtf/geometry/#dom-domrect">DOMRect</a>
+     <li><a href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>
+     <li><a href="http://dev.w3.org/fxtf/geometry/#domrect">DOMRect</a>
     </ul>
-   <li><a data-link-type="biblio" href="#biblio-html5">[html5]</a> defines the following terms:
+   <li><a data-link-type="biblio" href="#biblio-html">[HTML]</a> defines the following terms:
     <ul>
-     <li><a href="https://html.spec.whatwg.org/#navigator">Navigator</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a>
     </ul>
   </ul>
   <h2 class="no-num heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
+   <dt id="biblio-html"><a class="self-link" href="#biblio-html"></a>[HTML]
+   <dd>Ian Hickson. <a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-geometry-1"><a class="self-link" href="#biblio-geometry-1"></a>[GEOMETRY-1]
    <dd>Simon Pieters; Dirk Schulze; Rik Cabanier. <a href="http://www.w3.org/TR/geometry-1/">Geometry Interfaces Module Level 1</a>. 25 November 2014. CR. URL: <a href="http://www.w3.org/TR/geometry-1/">http://www.w3.org/TR/geometry-1/</a>
-   <dt id="biblio-html5"><a class="self-link" href="#biblio-html5"></a>[HTML5]
-   <dd>Ian Hickson; et al. <a href="http://www.w3.org/TR/html5/">HTML5</a>. 28 October 2014. REC. URL: <a href="http://www.w3.org/TR/html5/">http://www.w3.org/TR/html5/</a>
    <dt id="biblio-rfc2119"><a class="self-link" href="#biblio-rfc2119"></a>[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
   </dl>
@@ -1275,15 +1277,15 @@ interface <a data-global-name="" href="#vrpositionstate0">VRPositionState</a> {
   readonly attribute double <a class="idl-code" data-global-name="VRPositionState<interface>/timeStamp<attribute>" data-link-type="attribute" data-readonly="" data-type="double " href="#dom-vrpositionstate-timestamp">timeStamp</a>;
 
   readonly attribute boolean <a class="idl-code" data-global-name="VRPositionState<interface>/hasPosition<attribute>" data-link-type="attribute" data-readonly="" data-type="boolean " href="#dom-vrpositionstate-hasposition">hasPosition</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/position<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-position">position</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/linearVelocity<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-linearvelocity">linearVelocity</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/linearAcceleration<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-linearacceleration">linearAcceleration</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/position<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-position">position</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/linearVelocity<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-linearvelocity">linearVelocity</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/linearAcceleration<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-linearacceleration">linearAcceleration</a>;
 
   readonly attribute boolean <a class="idl-code" data-global-name="VRPositionState<interface>/hasOrientation<attribute>" data-link-type="attribute" data-readonly="" data-type="boolean " href="#dom-vrpositionstate-hasorientation">hasOrientation</a>;
   // XXX should be DOMQuaternion as soon as we add that
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/orientation<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-orientation">orientation</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/angularVelocity<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-angularvelocity">angularVelocity</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/angularAcceleration<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-angularacceleration">angularAcceleration</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/orientation<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-orientation">orientation</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/angularVelocity<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-angularvelocity">angularVelocity</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a>? <a class="idl-code" data-global-name="VRPositionState<interface>/angularAcceleration<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint? " href="#dom-vrpositionstate-angularacceleration">angularAcceleration</a>;
 };
 
 interface <a data-global-name="" href="#vreyeparameters0">VREyeParameters</a> {
@@ -1291,11 +1293,11 @@ interface <a data-global-name="" href="#vreyeparameters0">VREyeParameters</a> {
   readonly attribute <a data-link-type="idl-name" href="#vrfieldofview0">VRFieldOfView</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/minimumFieldOfView<attribute>" data-link-type="attribute" data-readonly="" data-type="VRFieldOfView " href="#dom-vreyeparameters-minimumfieldofview">minimumFieldOfView</a>;
   readonly attribute <a data-link-type="idl-name" href="#vrfieldofview0">VRFieldOfView</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/maximumFieldOfView<attribute>" data-link-type="attribute" data-readonly="" data-type="VRFieldOfView " href="#dom-vreyeparameters-maximumfieldofview">maximumFieldOfView</a>;
   readonly attribute <a data-link-type="idl-name" href="#vrfieldofview0">VRFieldOfView</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/recommendedFieldOfView<attribute>" data-link-type="attribute" data-readonly="" data-type="VRFieldOfView " href="#dom-vreyeparameters-recommendedfieldofview">recommendedFieldOfView</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-dompoint">DOMPoint</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/eyeTranslation<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint " href="#dom-vreyeparameters-eyetranslation">eyeTranslation</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dompoint">DOMPoint</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/eyeTranslation<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMPoint " href="#dom-vreyeparameters-eyetranslation">eyeTranslation</a>;
 
   /* These values will vary after a FOV has been set */
   readonly attribute <a data-link-type="idl-name" href="#vrfieldofview0">VRFieldOfView</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/currentFieldOfView<attribute>" data-link-type="attribute" data-readonly="" data-type="VRFieldOfView " href="#dom-vreyeparameters-currentfieldofview">currentFieldOfView</a>;
-  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#dom-domrect">DOMRect</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/renderRect<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMRect " href="#dom-vreyeparameters-renderrect">renderRect</a>;
+  readonly attribute <a data-link-type="idl-name" href="http://dev.w3.org/fxtf/geometry/#domrect">DOMRect</a> <a class="idl-code" data-global-name="VREyeParameters<interface>/renderRect<attribute>" data-link-type="attribute" data-readonly="" data-type="DOMRect " href="#dom-vreyeparameters-renderrect">renderRect</a>;
 };
 
 interface <a data-global-name="" href="#vrdevice0">VRDevice</a> {
@@ -1305,11 +1307,11 @@ interface <a data-global-name="" href="#vrdevice0">VRDevice</a> {
 };
 
 interface <a data-global-name="" href="#hmdvrdevice0">HMDVRDevice</a> : <a data-link-type="idl-name" href="#vrdevice0">VRDevice</a> {
-  <a data-link-type="idl-name" href="#vreyeparameters0">VREyeParameters</a> <a data-global-name="HMDVRDevice<interface>/getEyeParameters(whichEye)<method>" href="#dom-hmdvrdevice-geteyeparameterswhicheye">getEyeParameters</a>(<a data-link-type="idl-name" href="#enumdef-vreye">VREye</a> <a data-global-name="HMDVRDevice/getEyeParameters/whichEye<argument>" href="#dom-hmdvrdevice-geteyeparameters-whicheye">whichEye</a>);
-  void <a class="idl-code" data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/setFieldOfView(leftFOV, rightFOV, zNear)<method>/setFieldOfView(leftFOV, rightFOV)<method>/setFieldOfView(leftFOV)<method>/setFieldOfView()<method>" data-link-type="method" href="#dom-hmdvrdevice-setfieldofview">setFieldOfView</a>(optional <a data-link-type="idl-name" href="#dictdef-vrfieldofviewinit">VRFieldOfViewInit</a> <a data-global-name="HMDVRDevice/setFieldOfView/leftFOV<argument>" href="#dom-hmdvrdevice-setfieldofview-leftfov">leftFOV</a>,
-                      optional <a data-link-type="idl-name" href="#dictdef-vrfieldofviewinit">VRFieldOfViewInit</a> <a data-global-name="HMDVRDevice/setFieldOfView/rightFOV<argument>" href="#dom-hmdvrdevice-setfieldofview-rightfov">rightFOV</a>,
-                      optional double <a data-global-name="HMDVRDevice/setFieldOfView/zNear<argument>" href="#dom-hmdvrdevice-setfieldofview-znear">zNear</a> = 0.01,
-                      optional double <a data-global-name="HMDVRDevice/setFieldOfView/zFar<argument>" href="#dom-hmdvrdevice-setfieldofview-zfar">zFar</a> = 10000.0);
+  <a data-link-type="idl-name" href="#vreyeparameters0">VREyeParameters</a> <a class="idl-code" data-global-name="HMDVRDevice<interface>/getEyeParameters(whichEye)<method>" data-link-type="method" href="#dom-hmdvrdevice-geteyeparameterswhicheye">getEyeParameters</a>(<a data-link-type="idl-name" href="#enumdef-vreye">VREye</a> <a data-global-name="HMDVRDevice<interface>/getEyeParameters(whichEye)<method>/whichEye<argument>" href="#dom-hmdvrdevice-geteyeparameterswhicheye-whicheye">whichEye</a>);
+  void <a class="idl-code" data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/setFieldOfView(leftFOV, rightFOV, zNear)<method>/setFieldOfView(leftFOV, rightFOV)<method>/setFieldOfView(leftFOV)<method>/setFieldOfView()<method>" data-link-type="method" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar">setFieldOfView</a>(optional <a data-link-type="idl-name" href="#dictdef-vrfieldofviewinit">VRFieldOfViewInit</a> <a data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/leftFOV<argument>" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-leftfov">leftFOV</a>,
+                      optional <a data-link-type="idl-name" href="#dictdef-vrfieldofviewinit">VRFieldOfViewInit</a> <a data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/rightFOV<argument>" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-rightfov">rightFOV</a>,
+                      optional double <a data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/zNear<argument>" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-znear">zNear</a> = 0.01,
+                      optional double <a data-global-name="HMDVRDevice<interface>/setFieldOfView(leftFOV, rightFOV, zNear, zFar)<method>/zFar<argument>" href="#dom-hmdvrdevice-setfieldofviewleftfov-rightfov-znear-zfar-zfar">zFar</a> = 10000.0);
 };
 
 interface <a data-global-name="" href="#positionsensorvrdevice0">PositionSensorVRDevice</a> : <a data-link-type="idl-name" href="#vrdevice0">VRDevice</a> {
@@ -1318,7 +1320,7 @@ interface <a data-global-name="" href="#positionsensorvrdevice0">PositionSensorV
   void <a data-global-name="PositionSensorVRDevice<interface>/resetSensor()<method>" href="#dom-positionsensorvrdevice-resetsensor">resetSensor</a>();
 };
 
-partial interface <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/#navigator">Navigator</a> {
+partial interface <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a> {
   Promise&lt;sequence&lt;<a data-link-type="idl-name" href="#vrdevice0">VRDevice</a>>> <a class="idl-code" data-global-name="Navigator<interface>/getVRDevices()<method>" data-link-type="method" href="#dom-navigator-getvrdevices">getVRDevices</a>();
 };
 
