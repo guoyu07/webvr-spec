@@ -273,7 +273,7 @@ A user-readable name identifying the device.
 
 ## HMDVRDevice
 
-The {{HMDVRDevice}} interface represents a {{VRDevice}} for a head-mounted display.  It contains configuration and information about the HMD.
+{{HMDVRDevice}}接口代表头盔显示器 {{VRDevice}}。它包含了该HMD的配置和其它信息。
 
 <pre class="idl">
 interface HMDVRDevice : VRDevice {
@@ -309,7 +309,7 @@ interface PositionSensorVRDevice : VRDevice {
 };
 </pre>
 
-### 备方法 ### {#positionsensorvrdevicemethods}
+### 方法 ### {#positionsensorvrdevicemethods}
 
 <dfn method for=HMDVRDevice>getState()</dfn>
 Return a {{VRPositionState}} dictionary containing the state of this position
@@ -340,13 +340,10 @@ partial interface Navigator {
 ### 方法 ### {#navigatormethods}
 
 <dfn method for=Navigator>getVRDevices()</dfn>
-Return a Promise which resolves to a list of available {{VRDevice}}s.
-Applications should iterate over the list and correlate devices that share
-{{hardwareUnitId}}s to access the full capabilities of a device.
+返回确定可用的{{VRDevice}}列表。应用程序应该遍历该列表，并根据{{hardwareUnitId}}访问设备所有能力。
 
 <div class="example">
-The following code finds the first available {{HMDVRDevice}} and its
-associated {{PositionSensorVRDevice}}, if it has one.
+以下代码代表找出可用的第一款 {{HMDVRDevice}} 以及它相关联的 {{PositionSensorVRDevice}}（如果有的话）。
 
 <pre>
 var gHMD, gPositionSensor;
@@ -373,3 +370,5 @@ navigator.getVRDevices().then(function(devices) {
 </div>
 
 # 致谢 # {#ack}
+
+中文翻译：赵自明 <web3d@live.com>
