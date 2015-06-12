@@ -128,7 +128,7 @@ interface VRPositionState {
 };
 </pre>
 
-### Attributes ### {#vrpositionstateattributes}
+### 属性 ### {#vrpositionstateattributes}
 
 <dfn attribute for=VRPositionState>timeStamp</dfn>
 Monotonically increasing value that allows the author to determine if position
@@ -198,7 +198,7 @@ interface VREyeParameters {
 };
 </pre>
 
-### Attributes ### {#vreyeparametersattributes}
+### 属性 ### {#vreyeparametersattributes}
 
 <dfn attribute for=VREyeParameters>minimumFieldOfView</dfn>
 Describes the minimum supported field of view for the eye.
@@ -264,7 +264,7 @@ interface VRDevice {
 };
 </pre>
 
-### Attributes ### {#vrdeviceattributes}
+### 属性 ### {#vrdeviceattributes}
 
 <dfn attribute for=VRDevice>hardwareUnitId</dfn>
 An identifier for the distinct hardware unit that this {{VRDevice}} is a part
@@ -293,7 +293,7 @@ interface HMDVRDevice : VRDevice {
 };
 </pre>
 
-### Methods ### {#hmdvrdevicemethods}
+### 方法 ### {#hmdvrdevicemethods}
 
 <dfn method for=HMDVRDevice>getEyeParameters(VREye whichEye)</dfn>
 Return the current {{VREyeParameters}} for the given eye.
@@ -317,7 +317,7 @@ interface PositionSensorVRDevice : VRDevice {
 };
 </pre>
 
-### Methods ### {#positionsensorvrdevicemethods}
+### 备方法 ### {#positionsensorvrdevicemethods}
 
 <dfn method for=HMDVRDevice>getState()</dfn>
 Return a {{VRPositionState}} dictionary containing the state of this position
@@ -337,7 +337,7 @@ Return the current instantaneous sensor state.
 Reset this sensor, treating its current position and orientation yaw as the
 "origin/zero" values.
 
-## Navigator Interface extension
+## 导航器接口扩展
 
 <pre class="idl">
 partial interface Navigator {
@@ -345,7 +345,7 @@ partial interface Navigator {
 };
 </pre>
 
-### Methods ### {#navigatormethods}
+### 方法 ### {#navigatormethods}
 
 <dfn method for=Navigator>getVRDevices()</dfn>
 Return a Promise which resolves to a list of available {{VRDevice}}s.
@@ -380,4 +380,4 @@ navigator.getVRDevices().then(function(devices) {
 </pre>
 </div>
 
-# Acknowledgements # {#ack}
+# 致谢 # {#ack}
