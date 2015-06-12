@@ -109,7 +109,7 @@ function fieldOfViewToProjectionMatrix(fov, zNear, zFar) {
 
 ## VRPositionState
 
-The {{VRPositionState}} interface represents a sensor's state at a given timestamp.
+{{VRPositionState}} 接口代表传感器在给定时间戳的状况。
 
 <pre class="idl">
 interface VRPositionState {
@@ -131,34 +131,26 @@ interface VRPositionState {
 ### 属性 ### {#vrpositionstateattributes}
 
 <dfn attribute for=VRPositionState>timeStamp</dfn>
-Monotonically increasing value that allows the author to determine if position
-state data been updated from the hardware. Since values are monotonically
-increasing they can be compared to determine the ordering of updates, as newer
-values will always be greater than or equal to older values.
+值的单向增加让开发者可以判断设备的位置状态数据是否更新。既然值是单向增加的，就可以对他们进行比较来判断更新的顺序，因为新的值肯定大于等于旧的值。
 
 <dfn attribute for=VRPositionState>hasPosition</dfn>
-True if the {{position}} attribute is valid. If false, {{position}} MUST be null.
+为True代表{{position}}可用；为False属性则{{position}}必须为null。
 
 <dfn attribute for=VRPositionState>position</dfn>
-Position of the sensor at {{timeStamp}} as a 3D vector. Position is given in
-meters from an origin point, which is either the position the sensor was first
-read at or the position of the sensor at the point that resetSensor was last
-called. The coordinate system uses these axis definitions:
+代表在指定{{timeStamp}}下传感器的位置，是一个三维坐标。位置是相对原点的距离。原点是怎么来的呢？就是初次读取的传感器位置或者通过调用resetSensor重置传感器时的传感器位置。坐标轴系统定义：
 <ul>
- <li>Positive X is to the user's right.</li>
- <li>Positive Y is up.</li>
- <li>Positive Z is behind the user.</li>
+ <li>X轴正向在向用户右边</li>
+ <li>Y轴正向是向上</li>
+ <li>Z正向是向用户身后</li>
 </ul>
 All positions are given relative to the identity orientation. The w component
-MUST be 0. May be null if the sensor is incapable of providing positional data.
+MUST be 0. 如果传感器无法提供位置数据，就为null。
 
 <dfn attribute for=VRPositionState>linearVelocity</dfn>
-Linear velocity of the sensor at {{timeStamp}}. The w component MUST be 0.
-May be null if the sensor is incapable of providing linear velocity.
+在{{timeStamp}}时的线速度。w组件必须为0。如果传感器无法提供位置数据，就为null。
 
 <dfn attribute for=VRPositionState>linearAcceleration</dfn>
-Linear acceleration of the sensor at {{timeStamp}}. The w component MUST be 0.
-May be null if the sensor is incapable of providing linear acceleration.
+在{{timeStamp}}时的线性加速度。w组件必须为0。如果传感器无法提供位置数据，就为null。
 
 <dfn attribute for=VRPositionState>hasOrientation</dfn>
 True if the {{orientation}} attribute is valid. If false, {{orientation}} MUST be
@@ -182,7 +174,7 @@ May be null if the sensor is incapable of providing angular acceleration.
 
 ## VREyeParameters
 
-The {{VREyeParameters}} interface represents all the information required to correctly render a scene for a given eye.
+ {{VREyeParameters}} 接口interface represents all the information required to correctly render a scene for a given eye.
 
 <pre class="idl">
 interface VREyeParameters {
@@ -201,10 +193,10 @@ interface VREyeParameters {
 ### 属性 ### {#vreyeparametersattributes}
 
 <dfn attribute for=VREyeParameters>minimumFieldOfView</dfn>
-Describes the minimum supported field of view for the eye.
+描述眼睛支持的最低视角。
 
 <dfn attribute for=VREyeParameters>maximumFieldOfView</dfn>
-Describes the maximum supported field of view for the eye.
+描述眼睛支持的最大视角。
 
 <dfn attribute for=VREyeParameters>recommendedFieldOfView</dfn>
 Describes the recommended field of view for the eye. It is RECOMMENDED that this
@@ -254,7 +246,7 @@ canvas.height = Math.max(leftEyeRect.y + leftEyeRect.height,
 
 ## VRDevice
 
-The {{VRDevice}} interface forms the base of all VR devices supported by this API.  It includes generic information such as device IDs and descriptions.
+{{VRDevice}}接口构成了支持该API的所有VR设备的基础。它包含了如设备ID和描述等一般信息。
 
 <pre class="idl">
 interface VRDevice {
