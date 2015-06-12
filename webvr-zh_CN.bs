@@ -20,7 +20,7 @@ WebVR的API给VR硬件定义了专门定制的接口，让开发者构建出沉�
 
 # 支持的设备类型 # {#devtypes}
 
-目前定义了VR设备的两种变量(Variant)，每种变量用于描述一款硬件其中某一种特定功能，而不是该硬件所有功能。例如，Oculus Rift这样典型的头盔式显示器将被对外定义成两个VR设备：
+目前定义了两种VR设备体(Variant)，每种设备体仅描述一款硬件其中某一种特定功能，而不是该硬件所有功能。例如，Oculus Rift这样典型的头盔式显示器将被对外定义成两个VR设备：
 
 HMDVRDevice：描述了该设备的光学属性，包括：视角、瞳距；
 PositionSensorVRDevice：描述了该HMD设备在空间上的方位；
@@ -29,13 +29,13 @@ PositionSensorVRDevice可以不提供HMDVRDevice相关的功能，比如仅仅�
 
 更多的VRDevice类型会随着消费者不断接触到的新硬件类型或新功能逐渐增加，比如眼动跟踪仪就很可能是将来的一种接口设备。
 
-# Security # {#security}
+# 安全性 # {#security}
 
-Some information about security considerations here.
+关于安全问题的信息会放到这段。
 
-# DOM Interfaces # {#dom}
+# DOM 接口 # {#dom}
 
-This section describes the interfaces and functionality added to the DOM to support runtime access to the functionality described above.
+要支持在运行时访问上述功能，需向HTML DOM中添加相应接口或功能的代码，该小节对其做了描述。
 
 ## VREye
 
@@ -45,7 +45,7 @@ enum VREye { "left", "right" };
 
 ## VRFieldOfView
 
-The {{VRFieldOfView}} interface represents a field of view, as given by 4 degrees describing the view from a center point.
+ {{VRFieldOfView}} 接口代表人眼的视角，给出了 从中心点描述场景视图的四个角度。
 
 <pre class="idl">
 interface VRFieldOfViewReadOnly {
@@ -73,8 +73,7 @@ interface VRFieldOfView : VRFieldOfViewReadOnly {
 </pre>
 
 <div class="example">
-The following code snippet creates a WebGL-compatible projection matrix from a
-{{VRFieldOfView}}.
+以下js代码片段创建了一个兼容WebGL代码的{{VRFieldOfView}}投影矩阵。
 
 <pre>
 function fieldOfViewToProjectionMatrix(fov, zNear, zFar) {
