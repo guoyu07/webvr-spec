@@ -153,16 +153,12 @@ MUST be 0. 如果传感器无法提供位置数据，就为null。
 在{{timeStamp}}时的线性加速度。w组件必须为0。如果传感器无法提供位置数据，就为null。
 
 <dfn attribute for=VRPositionState>hasOrientation</dfn>
-True if the {{orientation}} attribute is valid. If false, {{orientation}} MUST be
-null.
+如果{{orientation}}属性可用，则值为true；如果{{orientation}}为null，则值为false。
 
 <dfn attribute for=VRPositionState>orientation</dfn>
-Orientation of the sensor at {{timeStamp}} as a quaternion. The orientation yaw
-(rotation around the Y axis) is relative to the initial yaw of the sensor when
-it was first read or the yaw of the sensor at the point that resetSensor was
-last called. An orientation of {x: 0, y: 0, z: 0, w: 1} is considered to be
-"forward". May be null if the sensor is incapable of providing
-orientation data.
+在给定的{{timeStamp}}传感器的方位，为四元数。方位偏向（沿Y轴的转角）是相对于传感器的初始偏向的，即初次读取或执行resetSensor时的值。
+方位值{x: 0, y: 0, z: 0, w: 1}一般代表“向前”。
+如果传感器不能提供方位数据，则返回null。
 
 <dfn attribute for=VRPositionState>angularVelocity</dfn>
 Angular velocity of the sensor at {{timeStamp}}. The w component MUST be 0.
@@ -340,7 +336,7 @@ partial interface Navigator {
 ### 方法 ### {#navigatormethods}
 
 <dfn method for=Navigator>getVRDevices()</dfn>
-返回确定可用的{{VRDevice}}列表。应用程序应该遍历该列表，并根据{{hardwareUnitId}}访问设备所有能力。
+返回Promise，包含确定可用的{{VRDevice}}列表。应用程序应该遍历该列表，并根据{{hardwareUnitId}}访问设备所有能力。
 
 <div class="example">
 以下代码代表找出可用的第一款 {{HMDVRDevice}} 以及它相关联的 {{PositionSensorVRDevice}}（如果有的话）。
