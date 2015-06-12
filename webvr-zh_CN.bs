@@ -18,18 +18,16 @@ ED: https://github.com/MozVR/webvr-spec/blob/master/webvr.html
 
 WebVR的API给VR硬件定义了专门定制的接口，让开发者构建出沉浸感强、舒适度高的VR体验。
 
-# Supported Device Types # {#devtypes}
+# 支持的设备类型 # {#devtypes}
 
-At this time there are two defined variants of VRDevice, each of which is intended to describe a specific capability of a piece of hardware
-rather than all aspects of that hardware. For example, a typical Head-Mounted Display such as an Oculus Rift will be exposed as two VRDevices:
-An HMDVRDevice that describes the optical properties of the device, including Field of View and Interpupillary Distance, and a
-PositionSensorVRDevice, which describes the HMD's position and orientation in space.
+目前定义了VR设备的两种变量(Variant)，每种变量用于描述一款硬件其中某一种特定功能，而不是该硬件所有功能。例如，Oculus Rift这样典型的头盔式显示器将被对外定义成两个VR设备：
 
-A PositionSensorVRDevice could also be provided without a corresponding HMDVRDevice to represent a piece of hardware that tracks position
-but does not have a display, such as a Six-degrees-of-freedom controller.
+HMDVRDevice：描述了该设备的光学属性，包括：视角、瞳距；
+PositionSensorVRDevice：描述了该HMD设备在空间上的方位；
 
-Additional VRDevice types may be added over time to expose new hardware types or features as they becomes available to consumers.
-Eye tracking is an example of a potential future interface.
+PositionSensorVRDevice可以不提供HMDVRDevice相关的功能，比如仅仅是一个六自由度控制器可以跟踪方位即可。
+
+更多的VRDevice类型会随着消费者不断接触到的新硬件类型或新功能逐渐增加，比如眼动跟踪仪就很可能是将来的一种接口设备。
 
 # Security # {#security}
 
