@@ -1,23 +1,22 @@
 <h1>WebVR</h1>
 
 <pre class='metadata'>
-Status: ED
+状态: ED
 ED: https://github.com/MozVR/webvr-spec/blob/master/webvr.html
-Shortname: webvr
-Level: 1
-Editor: Vladimir Vukicevic, Mozilla http://mozilla.com/, vladimir@mozilla.com
-Editor: Brandon Jones, Google http://google.com/, bajones@google.com
-Abstract: This specification describes support for accessing virtual reality devices, including sensors and head-mounted displays on the Web.
-Mailing List: web-vr-discuss@mozilla.org
-Mailing List Archives: https://mail.mozilla.org/pipermail/web-vr-discuss/
+简称: webvr
+级别: 1
+作者: Vladimir Vukicevic, Mozilla http://mozilla.com/, vladimir@mozilla.com
+作者: Brandon Jones, Google http://google.com/, bajones@google.com
+摘要: This specification describes support for accessing virtual reality devices, including sensors and head-mounted displays on the Web.
+邮件列表: web-vr-discuss@mozilla.org
+邮件列表归档: https://mail.mozilla.org/pipermail/web-vr-discuss/
 </pre>
 
-# Introduction # {#intro}
+# 简介 # {#intro}
 
-Hardware that enables Virtual Reality applications requires high-precision, low-latency interfaces to deliver an acceptable experience.
-Other interfaces, such as device orientation events, can be repurposed to surface VR input but doing so dilutes the interface's original
-intent and often does not provide the precision necessary for high-quality VR. The WebVR API provides purpose-built interfaces
-to VR hardware to allow developers to build compelling, comfortable VR experiences.
+硬件使得那些需要高精度、低延时界面效果的虚拟现实应用能提供令人满意的体验。其他接口如设备定位事件传感器虽然可以被应用到VR场景的输入，但削弱了这种接口的原始用途，且经常满足不了对高质量VR效果的精度需求。
+
+WebVR的API给VR硬件定义了专门定制的接口，让开发者构建出沉浸感强、舒适度高的VR体验。
 
 # Supported Device Types # {#devtypes}
 
