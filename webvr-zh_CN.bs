@@ -1,15 +1,16 @@
 <h1>WebVR</h1>
 
 <pre class='metadata'>
-状态: ED
+Status: ED
 ED: https://github.com/MozVR/webvr-spec/blob/master/webvr.html
-简称: webvr
-级别: 1
-作者: Vladimir Vukicevic, Mozilla http://mozilla.com/, vladimir@mozilla.com
-作者: Brandon Jones, Google http://google.com/, bajones@google.com
-摘要: This specification describes support for accessing virtual reality devices, including sensors and head-mounted displays on the Web.
-邮件列表: web-vr-discuss@mozilla.org
-邮件列表归档: https://mail.mozilla.org/pipermail/web-vr-discuss/
+Shortname: webvr
+Level: 1
+Editor: Vladimir Vukicevic, Mozilla http://mozilla.com/, vladimir@mozilla.com
+Editor: Brandon Jones, Google http://google.com/, bajones@google.com
+Abstract: This specification describes support for accessing virtual reality devices, including sensors and head-mounted displays on the Web.
+Mailing List: web-vr-discuss@mozilla.org
+Mailing List Archives: https://mail.mozilla.org/pipermail/web-vr-discuss/
+
 </pre>
 
 # 简介 # {#intro}

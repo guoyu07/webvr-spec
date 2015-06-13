@@ -1,5 +1,5 @@
 
 all: webvr.html
 
-webvr.html: webvr.bs
-	curl https://api.csswg.org/bikeshed/ -F file=@webvr.bs -F force=1 > webvr.html
+webvr.html: webvr-zh_CN.bs
+        curl https://api.csswg.org/bikeshed/ -F file=@webvr-zh_CN.bs -F force=1 > webvr-zh_CN.html
