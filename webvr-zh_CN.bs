@@ -237,17 +237,13 @@ interface VRDevice {
 ### 属性 ### {#vrdeviceattributes}
 
 <dfn attribute for=VRDevice>hardwareUnitId</dfn>
-An identifier for the distinct hardware unit that this {{VRDevice}} is a part
-of. Any {{VRDevice}} that comes from the same physical piece of hardware will
-have the same {{hardwareUnitId}}.
+各硬件单元的区分标识符，同一款物理硬件中的所有{{VRDevice}}拥有同一个{{hardwareUnitId}}值。
 
 <dfn attribute for=VRDevice>deviceId</dfn>
-An identifier for this distinct sensor/device on a physical hardware device.
-This shouldn't change across browser restarts, allowing configuration data to be
-saved based on it.
+区别于物理硬件设备的传感器设备的标识。这个值不会随着浏览器重启而发生变化，可用于关联保存配置数据。
 
 <dfn attribute for=VRDevice>deviceName</dfn>
-A user-readable name identifying the device.
+用户可读取的标识该设备的名称。
 
 ## HMDVRDevice
 
