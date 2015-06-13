@@ -262,18 +262,15 @@ interface HMDVRDevice : VRDevice {
 ### 方法 ### {#hmdvrdevicemethods}
 
 <dfn method for=HMDVRDevice>getEyeParameters(VREye whichEye)</dfn>
-Return the current {{VREyeParameters}} for the given eye.
+返回给定眼睛当前的{{VREyeParameters}}.
 
 <dfn method for=HMDVRDevice>setFieldOfView(optional VRFieldOfViewInit leftFOV, optional VRFieldOfViewInit rightFOV, optional double zNear = 0.01, optional double zFar = 10000.0)</dfn>
-Set the field of view for both eyes.  If either of the fields of view is null,
-or if their values are all zeros, then the {{recommendedFieldOfView}} for that
-eye will be used. If the field of view values for an eye exceed the
-{{minimumFieldOfView}} or {{maximumFieldOfView}} values for the same eye, then the
-values will be clamped to the valid range.
+设置两只眼睛的视角。如果都为null，或者都为0，就会启用{{recommendedFieldOfView}}所设置的值。
+如果视角的值超出同一只眼{{minimumFieldOfView}} 或 {{maximumFieldOfView}}的范围，就会自动剪裁到有效范围内。
 
 ## PositionSensorVRDevice
 
-The {{PositionSensorVRDevice}} interface represents a {{VRDevice}} for a sensor that can report position and/or orientation.
+{{PositionSensorVRDevice}}接口代表传感器{{VRDevice}}能实时报告方位数据(位置、方向可选)。
 
 <pre class="idl">
 interface PositionSensorVRDevice : VRDevice {
@@ -286,22 +283,16 @@ interface PositionSensorVRDevice : VRDevice {
 ### 方法 ### {#positionsensorvrdevicemethods}
 
 <dfn method for=HMDVRDevice>getState()</dfn>
-Return a {{VRPositionState}} dictionary containing the state of this position
-sensor state for the current frame (if within a requestAnimationFrame context)
-or for the previous frame. This state may be predicted based on the
-implementation's frame scheduling.
+返回 {{VRPositionState}}的数据词典，包含当前帧(如果在requestAnimationFrame环境中)或前一帧的传感器位置状态。这个状态可以基于帧执行排期的实现机制进行预测。
 
-The VRPositionState will contain the position, orientation, and velocity and
-acceleration of each of these properties. Use {{hasPosition}} and
-{{hasOrientation}} to check if the associated members are valid;
-If these are false, those members MUST be null.
+VRPositionState会包含位置、方向、角度及这些值的加速度值。
+可以用{{hasPosition}}和{{hasOrientation}}两个方法来检测相关成员属性是否可用；如果不可用，这些成员属性值必须为null。
 
 <dfn method for=HMDVRDevice>getImmediateState()</dfn>
-Return the current instantaneous sensor state.
+返回传感器当前瞬时状态。
 
 <dfn method for=HMDVRDevice>resetSensor()</dfn>
-Reset this sensor, treating its current position and orientation yaw as the
-"origin/zero" values.
+重置传感器，把它当前的位置和方向朝向作为设备的原点值。
 
 ## 导航器接口扩展
 
