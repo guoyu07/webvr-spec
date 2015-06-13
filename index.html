@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Webvr-spec by web3d</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Webvr-spec</h1>
+        <h2>WebVR Specification</h2>
+        <a href="https://github.com/web3d/webvr-spec" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="webvr" class="anchor" href="#webvr" aria-hidden="true"><span class="octicon octicon-link"></span></a>WebVR</h1>
+
+<pre>
+Status: ED
+ED: https://github.com/MozVR/webvr-spec/blob/master/webvr.html
+Shortname: webvr
+Level: 1
+Editor: Vladimir Vukicevic, Mozilla http://mozilla.com/, vladimir@mozilla.com
+Editor: Brandon Jones, Google http://google.com/, bajones@google.com
+Abstract: This specification describes support for accessing virtual reality devices, including sensors and head-mounted displays on the Web.
+Mailing List: web-vr-discuss@mozilla.org
+Mailing List Archives: https://mail.mozilla.org/pipermail/web-vr-discuss/
+
+</pre>
+
+<h1>
+<a id="简介--intro" class="anchor" href="#%E7%AE%80%E4%BB%8B--intro" aria-hidden="true"><span class="octicon octicon-link"></span></a>简介 # {#intro}</h1>
+
+<p>硬件使得那些需要高精度、低延时界面效果的虚拟现实应用能提供令人满意的体验。其他接口如设备定位事件传感器虽然可以被应用到VR场景的输入，但削弱了这种接口的原始用途，且经常满足不了对高质量VR效果的精度需求。</p>
+
+<p>WebVR的API给VR硬件定义了专门定制的接口，让开发者构建出沉浸感强、舒适度高的VR体验。</p>
+
+<h1>
+<a id="支持的设备类型--devtypes" class="anchor" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E8%AE%BE%E5%A4%87%E7%B1%BB%E5%9E%8B--devtypes" aria-hidden="true"><span class="octicon octicon-link"></span></a>支持的设备类型 # {#devtypes}</h1>
+
+<p>目前定义了两种VR设备体(Variant)，每种设备体仅描述一款硬件其中某一种特定功能，而不是该硬件所有功能。例如，Oculus Rift这样典型的头盔式显示器将被对外定义成两个VR设备：</p>
+
+<p>HMDVRDevice：描述了该设备的光学属性，包括：视角、瞳距；
+PositionSensorVRDevice：描述了该HMD设备在空间上的方位；</p>
+
+<p>PositionSensorVRDevice可以不提供HMDVRDevice相关的功能，比如仅仅是一个六自由度控制器可以跟踪方位即可。</p>
+
+<p>更多的VRDevice类型会随着消费者不断接触到的新硬件类型或新功能逐渐增加，比如眼动跟踪仪就很可能是将来的一种接口设备。</p>
+
+<h1>
+<a id="安全性--security" class="anchor" href="#%E5%AE%89%E5%85%A8%E6%80%A7--security" aria-hidden="true"><span class="octicon octicon-link"></span></a>安全性 # {#security}</h1>
+
+<p>关于安全问题的信息会放到这段。</p>
+
+<h1>
+<a id="dom-接口--dom" class="anchor" href="#dom-%E6%8E%A5%E5%8F%A3--dom" aria-hidden="true"><span class="octicon octicon-link"></span></a>DOM 接口 # {#dom}</h1>
+
+<p>要支持在运行时访问上述功能，需向HTML DOM中添加相应接口或功能的代码，该小节对其做了描述。</p>
+
+<h2>
+<a id="vreye" class="anchor" href="#vreye" aria-hidden="true"><span class="octicon octicon-link"></span></a>VREye</h2>
+
+<pre>
+enum VREye { "left", "right" };
+</pre>
+
+<h2>
+<a id="vrfieldofview" class="anchor" href="#vrfieldofview" aria-hidden="true"><span class="octicon octicon-link"></span></a>VRFieldOfView</h2>
+
+<p>{{VRFieldOfView}} 接口代表人眼的视角，给出了 从中心点描述场景视图的四个角度。</p>
+
+<pre>
+interface VRFieldOfViewReadOnly {
+  readonly attribute double upDegrees;
+  readonly attribute double rightDegrees;
+  readonly attribute double downDegrees;
+  readonly attribute double leftDegrees;
+};
+
+dictionary VRFieldOfViewInit {
+  double upDegrees = 0.0;
+  double rightDegrees = 0.0;
+  double downDegrees = 0.0;
+  double leftDegrees = 0.0;
+};
+
+[Constructor(optional VRFieldOfViewInit fov),
+ Constructor(double upDegrees, double rightDegrees, double downDegrees, double leftDegrees)]
+interface VRFieldOfView : VRFieldOfViewReadOnly {
+  inherit attribute double upDegrees;
+  inherit attribute double rightDegrees;
+  inherit attribute double downDegrees;
+  inherit attribute double leftDegrees;
+};
+</pre>
+
+<div>
+以下js代码片段创建了一个兼容WebGL代码的{{VRFieldOfView}}投影矩阵。
+
+<pre>
+function fieldOfViewToProjectionMatrix(fov, zNear, zFar) {
+  var upTan = Math.tan(fov.upDegrees * Math.PI / 180.0);
+  var downTan = Math.tan(fov.downDegrees * Math.PI / 180.0);
+  var leftTan = Math.tan(fov.leftDegrees * Math.PI / 180.0);
+  var rightTan = Math.tan(fov.rightDegrees * Math.PI / 180.0);
+  var xScale = 2.0 / (leftTan + rightTan);
+  var yScale = 2.0 / (upTan + downTan);
+
+  var out = new Float32Array(16);
+  out[0] = xScale;
+  out[1] = 0.0;
+  out[2] = 0.0;
+  out[3] = 0.0;
+  out[4] = 0.0;
+  out[5] = yScale;
+  out[6] = 0.0;
+  out[7] = 0.0;
+  out[8] = -((leftTan - rightTan) * xScale * 0.5);
+  out[9] = ((upTan - downTan) * yScale * 0.5);
+  out[10] = -(zNear + zFar) / (zFar - zNear);
+  out[11] = -1.0;
+  out[12] = 0.0;
+  out[13] = 0.0;
+  out[14] = -(2.0 * zFar * zNear) / (zFar - zNear);
+  out[15] = 0.0;
+
+  return out;
+}
+</pre>
+</div>
+
+<h2>
+<a id="vrpositionstate" class="anchor" href="#vrpositionstate" aria-hidden="true"><span class="octicon octicon-link"></span></a>VRPositionState</h2>
+
+<p>{{VRPositionState}} 接口代表传感器在给定时间戳的状况。</p>
+
+<pre>
+interface VRPositionState {
+  readonly attribute double timeStamp;
+
+  readonly attribute boolean hasPosition;
+  readonly attribute DOMPoint? position;
+  readonly attribute DOMPoint? linearVelocity;
+  readonly attribute DOMPoint? linearAcceleration;
+
+  readonly attribute boolean hasOrientation;
+  // XXX should be DOMQuaternion as soon as we add that
+  readonly attribute DOMPoint? orientation;
+  readonly attribute DOMPoint? angularVelocity;
+  readonly attribute DOMPoint? angularAcceleration;
+};
+</pre>
+
+<h3>
+<a id="属性--vrpositionstateattributes" class="anchor" href="#%E5%B1%9E%E6%80%A7--vrpositionstateattributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>属性 ### {#vrpositionstateattributes}</h3>
+
+<p>timeStamp
+值的单向增加让开发者可以判断设备的位置状态数据是否更新。既然值是单向增加的，就可以对他们进行比较来判断更新的顺序，因为新的值肯定大于等于旧的值。</p>
+
+<p>hasPosition
+为True代表{{position}}可用；为False属性则{{position}}必须为null。</p>
+
+<p>position
+代表在指定{{timeStamp}}下传感器的位置，是一个三维坐标。位置是相对原点的距离。原点是怎么来的呢？就是初次读取的传感器位置或者通过调用resetSensor重置传感器时的传感器位置。坐标轴系统定义：</p>
+
+<ul>
+ <li>X轴正向在向用户右边</li>
+ <li>Y轴正向是向上</li>
+ <li>Z正向是向用户身后</li>
+</ul>
+
+<p>All positions are given relative to the identity orientation. The w component
+MUST be 0. 如果传感器无法提供位置数据，就为null。</p>
+
+<p>linearVelocity
+在{{timeStamp}}时的线速度。w组件必须为0。如果传感器无法提供位置数据，就为null。</p>
+
+<p>linearAcceleration
+在{{timeStamp}}时的线性加速度。w组件必须为0。如果传感器无法提供位置数据，就为null。</p>
+
+<p>hasOrientation
+如果{{orientation}}属性可用，则值为true；如果{{orientation}}为null，则值为false。</p>
+
+<p>orientation
+在给定的{{timeStamp}}传感器的方位，为四元数。方位偏向（沿Y轴的转角）是相对于传感器的初始偏向的，即初次读取或执行resetSensor时的值。
+方位值{x: 0, y: 0, z: 0, w: 1}一般代表“向前”。
+如果传感器不能提供方位数据，则返回null。</p>
+
+<p>angularVelocity
+给定{{timeStamp}}时传感器的角速度。w组件值必须为0。如果传感器不能提供角速度，则返回null。</p>
+
+<p>angularAcceleration
+给定{{timeStamp}}时传感器的角加速度。w组件值必须为0。如果传感器不能提供加角速度，则返回null。</p>
+
+<h2>
+<a id="vreyeparameters" class="anchor" href="#vreyeparameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>VREyeParameters</h2>
+
+<p>{{VREyeParameters}} 接口代表向每只眼正确渲染场景所必须的信息。</p>
+
+<pre>
+interface VREyeParameters {
+  /* These values are expected to be static per-device/per-user. */
+  readonly attribute VRFieldOfView minimumFieldOfView;
+  readonly attribute VRFieldOfView maximumFieldOfView;
+  readonly attribute VRFieldOfView recommendedFieldOfView;
+  readonly attribute DOMPoint eyeTranslation;
+
+  /* These values will vary after a FOV has been set. */
+  readonly attribute VRFieldOfView currentFieldOfView;
+  readonly attribute DOMRect renderRect;
+};
+</pre>
+
+<h3>
+<a id="属性--vreyeparametersattributes" class="anchor" href="#%E5%B1%9E%E6%80%A7--vreyeparametersattributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>属性 ### {#vreyeparametersattributes}</h3>
+
+<p>minimumFieldOfView
+描述眼睛支持的最低视角。</p>
+
+<p>maximumFieldOfView
+描述眼睛支持的最大视角。</p>
+
+<p>recommendedFieldOfView
+描述眼睛推荐的视角。推荐设置成基于用户校准的值。</p>
+
+<p>eyeTranslation
+用户头部正中心到眼睛之间的距离，以米为单位。这个值应该就是代表该用户的瞳距(IPD)，但也可以代表头盔中心点到眼球中心点的距离。左眼的值必须是负值，右眼的值必须是正值。</p>
+
+<p>currentFieldOfView
+当前眼睛的视角，就是setFieldOfView设置的值。默认为 {{recommendedFieldOfView}} 。</p>
+
+<p>renderRect
+描述在画布上渲染给眼睛的可视化内容的视口(viewport)。 左眼和右眼的{{renderRect}}必须不能有交叉, {{renderRect}}中右眼必须是左眼右边的内容。
+{{renderRect}}两只眼球合起来应该是描述了HMD在采用{{currentFieldOfView}}时的最佳渲染精度，这样才能用户中心的视角维持在1:1的像素比例。</p>
+
+<div>
+很多HMD设备会将渲染的图像进行变形处理，来抵消由头盔光学元件带来的不适效果。
+画布的光学分辨率经常会比HMD的物理分辨率大，来确保用户看到的最终图像效果是以1:1的比例显示在用户视角中心。 
+光学画布分辨率可以通过以下方式来计算：
+
+<pre>
+var leftEyeParams = hmd.getEyeParameters("left");
+var rightEyeParams = hmd.getEyeParameters("right");
+var leftEyeRect = leftEyeParams.renderRect;
+var rightEyeRect = rightEyeParams.renderRect;
+
+canvas.width = rightEyeRect.x + rightEyeRect.width;
+canvas.height = Math.max(leftEyeRect.y + leftEyeRect.height,
+                         rightEyeRect.y + rightEyeRect.height);
+</pre>
+</div>
+
+<h2>
+<a id="vrdevice" class="anchor" href="#vrdevice" aria-hidden="true"><span class="octicon octicon-link"></span></a>VRDevice</h2>
+
+<p>{{VRDevice}}接口构成了支持该API的所有VR设备的基础。它包含了如设备ID和描述等一般信息。</p>
+
+<pre>
+interface VRDevice {
+  readonly attribute DOMString hardwareUnitId;
+  readonly attribute DOMString deviceId;
+  readonly attribute DOMString deviceName;
+};
+</pre>
+
+<h3>
+<a id="属性--vrdeviceattributes" class="anchor" href="#%E5%B1%9E%E6%80%A7--vrdeviceattributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>属性 ### {#vrdeviceattributes}</h3>
+
+<p>hardwareUnitId
+各硬件单元的区分标识符，同一款物理硬件中的所有{{VRDevice}}拥有同一个{{hardwareUnitId}}值。</p>
+
+<p>deviceId
+区别于物理硬件设备的传感器设备的标识。这个值不会随着浏览器重启而发生变化，可用于关联保存配置数据。</p>
+
+<p>deviceName
+用户可读取的标识该设备的名称。</p>
+
+<h2>
+<a id="hmdvrdevice" class="anchor" href="#hmdvrdevice" aria-hidden="true"><span class="octicon octicon-link"></span></a>HMDVRDevice</h2>
+
+<p>{{HMDVRDevice}}接口代表头盔显示器 {{VRDevice}}。它包含了该HMD的配置和其它信息。</p>
+
+<pre>
+interface HMDVRDevice : VRDevice {
+  VREyeParameters getEyeParameters(VREye whichEye);
+  void setFieldOfView(optional VRFieldOfViewInit leftFOV,
+                      optional VRFieldOfViewInit rightFOV,
+                      optional double zNear = 0.01,
+                      optional double zFar = 10000.0);
+};
+</pre>
+
+<h3>
+<a id="方法--hmdvrdevicemethods" class="anchor" href="#%E6%96%B9%E6%B3%95--hmdvrdevicemethods" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法 ### {#hmdvrdevicemethods}</h3>
+
+<p>getEyeParameters(VREye whichEye)
+返回给定眼睛当前的{{VREyeParameters}}.</p>
+
+<p>setFieldOfView(optional VRFieldOfViewInit leftFOV, optional VRFieldOfViewInit rightFOV, optional double zNear = 0.01, optional double zFar = 10000.0)
+设置两只眼睛的视角。如果都为null，或者都为0，就会启用{{recommendedFieldOfView}}所设置的值。
+如果视角的值超出同一只眼{{minimumFieldOfView}} 或 {{maximumFieldOfView}}的范围，就会自动剪裁到有效范围内。</p>
+
+<h2>
+<a id="positionsensorvrdevice" class="anchor" href="#positionsensorvrdevice" aria-hidden="true"><span class="octicon octicon-link"></span></a>PositionSensorVRDevice</h2>
+
+<p>{{PositionSensorVRDevice}}接口代表传感器{{VRDevice}}能实时报告方位数据(位置、方向可选)。</p>
+
+<pre>
+interface PositionSensorVRDevice : VRDevice {
+  VRPositionState getState();
+  VRPositionState getImmediateState();
+  void resetSensor();
+};
+</pre>
+
+<h3>
+<a id="方法--positionsensorvrdevicemethods" class="anchor" href="#%E6%96%B9%E6%B3%95--positionsensorvrdevicemethods" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法 ### {#positionsensorvrdevicemethods}</h3>
+
+<p>getState()
+返回 {{VRPositionState}}的数据词典，包含当前帧(如果在requestAnimationFrame环境中)或前一帧的传感器位置状态。这个状态可以基于帧执行排期的实现机制进行预测。</p>
+
+<p>VRPositionState会包含位置、方向、角度及这些值的加速度值。
+可以用{{hasPosition}}和{{hasOrientation}}两个方法来检测相关成员属性是否可用；如果不可用，这些成员属性值必须为null。</p>
+
+<p>getImmediateState()
+返回传感器当前瞬时状态。</p>
+
+<p>resetSensor()
+重置传感器，把它当前的位置和方向朝向作为设备的原点值。</p>
+
+<h2>
+<a id="导航器接口扩展" class="anchor" href="#%E5%AF%BC%E8%88%AA%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%89%A9%E5%B1%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>导航器接口扩展</h2>
+
+<pre>
+partial interface Navigator {
+  Promise&lt;sequence&lt;VRDevice&amp;gt&gt; getVRDevices();
+};
+</pre>
+
+<h3>
+<a id="方法--navigatormethods" class="anchor" href="#%E6%96%B9%E6%B3%95--navigatormethods" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法 ### {#navigatormethods}</h3>
+
+<p>getVRDevices()
+返回Promise，包含确定可用的{{VRDevice}}列表。应用程序应该遍历该列表，并根据{{hardwareUnitId}}访问设备所有能力。</p>
+
+<div>
+以下代码代表找出可用的第一款 {{HMDVRDevice}} 以及它相关联的 {{PositionSensorVRDevice}}（如果有的话）。
+
+<pre>
+var gHMD, gPositionSensor;
+
+navigator.getVRDevices().then(function(devices) {
+  for (var i = 0; i 
+</pre>
+</div>
+
+<h1>
+<a id="致谢--ack" class="anchor" href="#%E8%87%B4%E8%B0%A2--ack" aria-hidden="true"><span class="octicon octicon-link"></span></a>致谢 # {#ack}</h1>
+
+<p>中文翻译：赵自明 <a href="mailto:web3d@live.com">web3d@live.com</a></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/web3d/webvr-spec/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/web3d/webvr-spec/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/web3d/webvr-spec"></a> is maintained by <a href="https://github.com/web3d">web3d</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
