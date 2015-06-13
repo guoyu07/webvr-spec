@@ -193,15 +193,10 @@ interface VREyeParameters {
 描述眼睛支持的最大视角。
 
 <dfn attribute for=VREyeParameters>recommendedFieldOfView</dfn>
-Describes the recommended field of view for the eye. It is RECOMMENDED that this
-be set to a value based on user calibration.
+描述眼睛推荐的视角。推荐设置成基于用户校准的值。
 
 <dfn attribute for=VREyeParameters>eyeTranslation</dfn>
-Offset from the center of the user's head to the eye in meters. This value SHOULD
-represent the user's interpupillary distance (IPD), but may also represent the
-distance from the center point of the headset to the center point of the lens for
-the given eye. Values for the left eye MUST be negative; values for the right
-eye MUST be positive.
+用户头部正中心到眼睛之间的距离，以米为单位。这个值应该就是代表该用户的瞳距(IPD)，但也可以代表头盔中心点到眼球中心点的距离。左眼的值必须是负值，右眼的值必须是正值。
 
 <dfn attribute for=VREyeParameters>currentFieldOfView</dfn>
 The current field of view for the eye, as specified by setFieldOfView.
