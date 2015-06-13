@@ -199,27 +199,16 @@ interface VREyeParameters {
 用户头部正中心到眼睛之间的距离，以米为单位。这个值应该就是代表该用户的瞳距(IPD)，但也可以代表头盔中心点到眼球中心点的距离。左眼的值必须是负值，右眼的值必须是正值。
 
 <dfn attribute for=VREyeParameters>currentFieldOfView</dfn>
-The current field of view for the eye, as specified by setFieldOfView.
-Defaults to {{recommendedFieldOfView}}.
+当前眼睛的视角，就是setFieldOfView设置的值。默认为 {{recommendedFieldOfView}} 。
 
 <dfn attribute for=VREyeParameters>renderRect</dfn>
-Describes the viewport of a canvas into which visuals for this eye should be
-rendered. The {{renderRect}} for the left eye and right eye MUST NOT overlap,
-and the {{renderRect}} for the rightEye MUST be to the right of the
-{{renderRect}} for the left eye.
-
-The union of the {{renderRect}}s for both eyes SHOULD describe the optimal
-rendering resolution for the HMD when using {{currentFieldOfView}}, such that
-the center of the user's view maintains a 1:1 pixel ratio after any distortion
-to correct for HMD optics applied to the rendering.
+描述在画布上渲染给眼睛的可视化内容的视口(viewport)。 左眼和右眼的{{renderRect}}必须不能有交叉, {{renderRect}}中右眼必须是左眼右边的内容。
+{{renderRect}}两只眼球合起来应该是描述了HMD在采用{{currentFieldOfView}}时的最佳渲染精度，这样才能用户中心的视角维持在1:1的像素比例。
 
 <div class="example">
-Many HMDs will distort the rendered image to counteract undesired effects
-introduced by the headset optics. Because of this the optimal resolution of the
-canvas will often be larger than the HMD's physical resolution to ensure that
-the final image presented to the user has a 1:1 pixel ratio at the center of the
-user's view. The optimal canvas resolution can be calculated from the
-{{renderRect}} for both eyes as follows:
+很多HMD设备会将渲染的图像进行变形处理，来抵消由头盔光学元件带来的不适效果。
+画布的光学分辨率经常会比HMD的物理分辨率大，来确保用户看到的最终图像效果是以1:1的比例显示在用户视角中心。 
+光学画布分辨率可以通过以下方式来计算：
 
 <pre>
 var leftEyeParams = hmd.getEyeParameters("left");
