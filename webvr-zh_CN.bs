@@ -161,16 +161,14 @@ MUST be 0. 如果传感器无法提供位置数据，就为null。
 如果传感器不能提供方位数据，则返回null。
 
 <dfn attribute for=VRPositionState>angularVelocity</dfn>
-Angular velocity of the sensor at {{timeStamp}}. The w component MUST be 0.
-May be null if the sensor is incapable of providing angular velocity.
+给定{{timeStamp}}时传感器的角速度。w组件值必须为0。如果传感器不能提供角速度，则返回null。
 
 <dfn attribute for=VRPositionState>angularAcceleration</dfn>
-Angular acceleration of the sensor at {{timeStamp}}. The w component MUST be 0.
-May be null if the sensor is incapable of providing angular acceleration.
+给定{{timeStamp}}时传感器的角加速度。w组件值必须为0。如果传感器不能提供加角速度，则返回null。
 
 ## VREyeParameters
 
- {{VREyeParameters}} 接口interface represents all the information required to correctly render a scene for a given eye.
+ {{VREyeParameters}} 接口代表向每只眼正确渲染场景所必须的信息。
 
 <pre class="idl">
 interface VREyeParameters {
